@@ -91,11 +91,12 @@ h1, p{
 	color: hsl(var(--rotation),100%, 50%);
 }
 
-img{
-	transform: rotate3d(1,0,1,calc(var(--rotation) * 200 ))translateZ(calc(sin(var(--rotation)) * 1000px)) scale(calc(sin(var(--rotation) * 200)));
+#garfield{
+	transform: rotate3d(1,0,1,calc(var(--rotation) * 200 ))translateZ(calc(sin(var(--rotation)) * 200px)) scale(calc(sin(var(--rotation) * 200)));
 	border-radius: 1000px;
 }
 
 #fibsh{
 	transform: rotate3d(1,1,1,calc(var(--rotation) * 0.1));
+	border-radius: 1000px;
 }
