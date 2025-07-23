@@ -27,7 +27,18 @@ const boards = [
         words: ["CHERRY", "PAPAYA", "BANANA", "PEAR", "FIG"]
     },
 ]
+let score = 0;
+let board = 0;
+let selectedX = -1;
+let selectedY = -1;
+const CELLS = makeCellList();
+let confettiHeight=0; 
+reset();
 
+function confetti(){
+    console.log("yay");
+    confettiHeight=-1000;
+}
 function makeCellList() {
     let cells = Array.from(document.getElementById("cell-holder").children);
     let cellBoard = [];
@@ -36,8 +47,7 @@ function makeCellList() {
     }
     return cellBoard;
 }
-const CELLS = makeCellList();
-console.log(CELLS);
+
 
 function setupGame(board) {
     for (let i = 0; i < 5; i++) {
@@ -47,15 +57,9 @@ function setupGame(board) {
     }
 }
 
-setupGame(boards[0].cells);
-document.getElementById("words").innerHTML = "Words to spell: " + boards[0].words.join(", ");
-
-let selectedX = -1;
-let selectedY = -1;
-
 function select(x, y) {
     let cell = CELLS[y][x];
-    if(cell.innerHTML.length>0){
+    if (cell.innerHTML.length > 0) {
         selectedX = x;
         selectedY = y;
         cell.classList.add("selected");
@@ -63,16 +67,32 @@ function select(x, y) {
 }
 
 function unselect(x, y) {
-
+    CELLS[y][x].classList.remove("selected");
+    selectedX = -1;
+    selectedY = -1;
 }
 
 
 function move(x, y) {
-
+    CELLS[y][x].innerHTML = CELLS[selectedY][selectedX].innerHTML + CELLS[y][x].innerHTML;
+    CELLS[selectedY][selectedX].innerHTML = "";
+    unselect(selectedX, selectedY);
+    select(x, y);
+    for (let i = 0; i < boards[board].words.length; i++) {
+        if (boards[board].words[i] == CELLS[y][x].innerHTML) {
+            score+=CELLS[y][x].innerHTML.length * 40;
+            document.getElementById("score").innerHTML = "Score: " + score;
+            if (score==1000){
+                confetti();
+            }
+        }
+    }
 }
 
 function canMove(x, y) {
+    let isNextTo = Math.abs(selectedX - x) + Math.abs(selectedY - y) == 1;
 
+    return selectedX >= 0 && selectedY >= 0 && isNextTo && CELLS[y][x].innerHTML.length > 0;
 }
 
 function onClick(x, y) {
@@ -81,7 +101,58 @@ function onClick(x, y) {
     } else if (canMove(x, y)) {
         move(x, y);
     } else {
+        if (selectedX >= 0 && selectedY >= 0){
+            unselect(selectedX, selectedY);
+        }
         select(x, y);
+        
     }
 
 }
+
+function reset(){
+    score = 0;
+    document.getElementById("score").innerHTML = "Score: " + score;
+    if (selectedX >= 0 && selectedY >= 0){
+        unselect(selectedX, selectedY);
+    }
+    makeCellList();
+    setupGame(boards[board].cells);
+    document.getElementById("words").innerHTML = "Words to spell: " + boards[board].words.join(", ");
+    document.getElementById("display").innerHTML = board+1 +"";
+}
+
+function random(){
+    board = Math.floor(Math.random() * boards.length);
+    reset();
+}
+
+function left(){
+    board --;
+    if (board < 0){
+        board = 0;
+    } else {
+        reset();
+    }
+}
+
+function right(){
+    board++;
+    if (board >= boards.length){
+        board = boards.length - 1;
+    }else{
+    reset();
+    }
+}
+function onFrame(){
+    if(confettiHeight<0){
+        confettiHeight+=10;
+    } else {
+        document.body.style="--confettiWidth:" + 0 +"px";
+        document.body.style="--confettiHeight:" + 0 +"px";
+    }
+    document.body.style="--confettiY:" + confettiHeight +"px";
+    requestAnimationFrame(onFrame)
+    console.log(confettiHeight);
+}
+onFrame()

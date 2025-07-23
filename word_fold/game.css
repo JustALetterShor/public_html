@@ -23,11 +23,11 @@ h1{
 }
 
 .header{
-    margin-bottom: 5px;
+    margin: 5px;
     padding: 0px 25px;
     background-color: plum;
     color: rebeccapurple;
-    font-size: x-large;
+    font-size: xx-large;
     border-radius: 15px;
 }
 
@@ -44,4 +44,33 @@ h1{
 
 .cell.selected{
     border: indigo   8px solid;
+}
+
+#headerHolder{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size: xx-large;
+}
+#buttonHolder{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size: xx-large;
+}
+
+.button{
+    margin: 5px;
+    padding: 0px 25px;
+    background-color: plum;
+    color: rebeccapurple;
+    font-size: x-large;
+    border-radius: 15px;
+}
+
+#confetti{
+    transform: translateY(var(--confettiY));
+    width: var(--confettiWidth);
+    height: var(--confettiHeight);
+    
 }

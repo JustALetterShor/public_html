@@ -8,19 +8,21 @@
 </head>
 
 <body>
-  <div class="header">
-    <h1>Word Fold</h1>
+  <div id="headerHolder">
+    <p class="button" id="score">Score: 0</p>
+    <h1 class="header">Word Fold</h1>
+    <p class="button" id="display"></p>
   </div>
   <div id="cell-holder">
-    <div class="cell" onclick="onClick(0,0)">a</div>
-    <div class="cell" onclick="onClick(1,0)">b</div>
-    <div class="cell" onclick="onClick(2,0)">c</div>
-    <div class="cell" onclick="onClick(3,0)">d</div>
-    <div class="cell" onclick="onClick(4,0)">e</div>
-    <div class="cell" onclick="onClick(0,1)">f</div>
-    <div class="cell" onclick="onClick(1,1)">g</div>
-    <div class="cell" onclick="onClick(2,1)">h</div>
-    <div class="cell" onclick="onClick(3,1)">i</div>
+    <div class="cell" onclick="onClick(0,0)"></div>
+    <div class="cell" onclick="onClick(1,0)"></div>
+    <div class="cell" onclick="onClick(2,0)"></div>
+    <div class="cell" onclick="onClick(3,0)"></div>
+    <div class="cell" onclick="onClick(4,0)"></div>
+    <div class="cell" onclick="onClick(0,1)"></div>
+    <div class="cell" onclick="onClick(1,1)"></div>
+    <div class="cell" onclick="onClick(2,1)"></div>
+    <div class="cell" onclick="onClick(3,1)"></div>
     <div class="cell" onclick="onClick(4,1)"></div>
     <div class="cell" onclick="onClick(0,2)"></div>
     <div class="cell" onclick="onClick(1,2)"></div>
@@ -38,7 +40,22 @@
     <div class="cell" onclick="onClick(3,4)"></div>
     <div class="cell" onclick="onClick(4,4)"></div>
   </div>
-  <div class="header" id="words"></div>
+  <div class="button" id="words"></div>
+  <div id="buttonHolder">
+    <div class="button" id="reset" onclick="reset()">
+      <p>Reset</p>
+    </div>
+    <div class="button" id="random" onclick="random()">
+      <p>Random Board</p>
+    </div>
+    <div class="button" id="left" onclick="left()">
+      <p>&lt;</p>
+    </div>
+    <div class="button" id="right" onclick="right()">
+      <p>&gt;</p>
+    </div>
+  </div>
+  <img src="word_fold_assets/confetti4.png" id="confetti" alt="confetti">
 </body>
 
 </html>
