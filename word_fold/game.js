@@ -26,18 +26,58 @@ const boards = [
             ["I", "G", "A", "P", "A"]],
         words: ["CHERRY", "PAPAYA", "BANANA", "PEAR", "FIG"]
     },
+    {
+        cells: [
+            ["R", "B", "E", "P", "A"],
+            ["U", "Y", "A", "O", "L"],
+            ["D", "A", "R", "P", "R"],
+            ["I", "M", "L", "B", "E"],
+            ["O", "N", "D", "A", "M"]],
+        words: ["RUBY", "OPAL", "AMBER", "PEARL", "DIAMOND"]
+    },
 ]
 let score = 0;
 let board = 0;
 let selectedX = -1;
 let selectedY = -1;
+let primaryColor="rebeccapurple";
+let secondaryColor="plum";
+let tertiaryColor="indigo";
 const CELLS = makeCellList();
-let confettiHeight=0; 
+let confettiHeight = 0;
 reset();
 
-function confetti(){
+function colorPalette() {
+    switch (board) {
+        case (board == 0): {
+            primaryColor="rebeccapurple";
+            secondaryColor="plum";
+            tertiaryColor="indigo";
+            break
+        }
+        case (board == 1): {
+            primaryColor="rebeccapurple";
+            secondaryColor="plum";
+            tertiaryColor="indigo";
+            break
+        }
+        case (board == 2): {
+            primaryColor="rebeccapurple";
+            secondaryColor="plum";
+            tertiaryColor="indigo";
+            break
+        }
+        case (board == 3): {
+            primaryColor="rebeccapurple";
+            secondaryColor="plum";
+            tertiaryColor="indigo";
+            break
+        }
+    }
+}
+function confetti() {
     console.log("yay");
-    confettiHeight=-1000;
+    confettiHeight = -1920;
 }
 function makeCellList() {
     let cells = Array.from(document.getElementById("cell-holder").children);
@@ -80,9 +120,9 @@ function move(x, y) {
     select(x, y);
     for (let i = 0; i < boards[board].words.length; i++) {
         if (boards[board].words[i] == CELLS[y][x].innerHTML) {
-            score+=CELLS[y][x].innerHTML.length * 40;
+            score += CELLS[y][x].innerHTML.length * 40;
             document.getElementById("score").innerHTML = "Score: " + score;
-            if (score==1000){
+            if (score == 1000) {
                 confetti();
             }
         }
@@ -101,58 +141,56 @@ function onClick(x, y) {
     } else if (canMove(x, y)) {
         move(x, y);
     } else {
-        if (selectedX >= 0 && selectedY >= 0){
+        if (selectedX >= 0 && selectedY >= 0) {
             unselect(selectedX, selectedY);
         }
         select(x, y);
-        
+
     }
 
 }
 
-function reset(){
+function reset() {
     score = 0;
     document.getElementById("score").innerHTML = "Score: " + score;
-    if (selectedX >= 0 && selectedY >= 0){
+    if (selectedX >= 0 && selectedY >= 0) {
         unselect(selectedX, selectedY);
     }
     makeCellList();
     setupGame(boards[board].cells);
     document.getElementById("words").innerHTML = "Words to spell: " + boards[board].words.join(", ");
-    document.getElementById("display").innerHTML = board+1 +"";
+    document.getElementById("display").innerHTML = board + 1 + "";
+    colorPalette();
 }
 
-function random(){
+function random() {
     board = Math.floor(Math.random() * boards.length);
     reset();
 }
 
-function left(){
-    board --;
-    if (board < 0){
+function left() {
+    board--;
+    if (board < 0) {
         board = 0;
     } else {
         reset();
     }
 }
 
-function right(){
+function right() {
     board++;
-    if (board >= boards.length){
+    if (board >= boards.length) {
         board = boards.length - 1;
-    }else{
-    reset();
+    } else {
+        reset();
     }
 }
-function onFrame(){
-    if(confettiHeight<0){
-        confettiHeight+=10;
-    } else {
-        document.body.style="--confettiWidth:" + 0 +"px";
-        document.body.style="--confettiHeight:" + 0 +"px";
+function onFrame() {
+    if (confettiHeight < 0) {
+        confettiHeight += 10;
     }
-    document.body.style="--confettiY:" + confettiHeight +"px";
+    document.body.style = "--primaryColor: " + primaryColor +";--secondaryColor: " + secondaryColor + ";--tertiaryColor:" + tertiaryColor + ";--confettiY:" + confettiHeight + "px" ;
     requestAnimationFrame(onFrame)
-    console.log(confettiHeight);
+    console.log(secondaryColor);
 }
 onFrame()
