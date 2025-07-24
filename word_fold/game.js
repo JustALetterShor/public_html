@@ -40,40 +40,44 @@ let score = 0;
 let board = 0;
 let selectedX = -1;
 let selectedY = -1;
-let primaryColor="rebeccapurple";
-let secondaryColor="plum";
-let tertiaryColor="indigo";
+let primaryColor = "rebeccapurple";
+let secondaryColor = "plum";
+let tertiaryColor = "indigo";
 const CELLS = makeCellList();
 let confettiHeight = 0;
 reset();
 
 function colorPalette() {
     switch (board) {
-        case (board == 0): {
-            primaryColor="rebeccapurple";
-            secondaryColor="plum";
-            tertiaryColor="indigo";
+        case 0: {
+            primaryColor = "rebeccapurple";
+            secondaryColor = "plum";
+            tertiaryColor = "indigo";
+
             break
         }
-        case (board == 1): {
-            primaryColor="rebeccapurple";
-            secondaryColor="plum";
-            tertiaryColor="indigo";
+        case 1: {
+            primaryColor = "maroon";
+            secondaryColor = "firebrick";
+            tertiaryColor = "red";
+
             break
         }
-        case (board == 2): {
-            primaryColor="rebeccapurple";
-            secondaryColor="plum";
-            tertiaryColor="indigo";
+        case 2: {
+            primaryColor = "forestgreen";
+            secondaryColor = "mediumseagreen";
+            tertiaryColor = "darkgreen";
             break
         }
-        case (board == 3): {
-            primaryColor="rebeccapurple";
-            secondaryColor="plum";
-            tertiaryColor="indigo";
+        case 3: {
+            primaryColor = "darkgoldenrod";
+            secondaryColor = "navajowhite";
+            tertiaryColor = "gold";
+
             break
         }
     }
+    console.log("go");
 }
 function confetti() {
     console.log("yay");
@@ -164,7 +168,11 @@ function reset() {
 }
 
 function random() {
-    board = Math.floor(Math.random() * boards.length);
+    let newBoard = Math.floor(Math.random() * boards.length);
+    while (newBoard == board) {
+        newBoard = Math.floor(Math.random() * boards.length);
+    }
+    board = newBoard;
     reset();
 }
 
@@ -189,8 +197,7 @@ function onFrame() {
     if (confettiHeight < 0) {
         confettiHeight += 10;
     }
-    document.body.style = "--primaryColor: " + primaryColor +";--secondaryColor: " + secondaryColor + ";--tertiaryColor:" + tertiaryColor + ";--confettiY:" + confettiHeight + "px" ;
+    document.body.style = "--primaryColor: " + primaryColor + ";--secondaryColor: " + secondaryColor + ";--tertiaryColor:" + tertiaryColor + ";--confettiY:" + confettiHeight + "px";
     requestAnimationFrame(onFrame)
-    console.log(secondaryColor);
 }
 onFrame()
