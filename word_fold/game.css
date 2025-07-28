@@ -44,7 +44,7 @@ h1{
 }
 
 .cell.selected{
-    border: var(--tertiaryColor)   8px solid;
+    border: var(--tertiaryColor)   4px solid;
 }
 
 #headerHolder{
