@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Primary Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!--Title-->
+    <title>Origamidex</title>
+
+    <!--Links to stylesheet and script-->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+    <!--Main Container for website-->
+    <div class="container">
+
+        <!--Header-->
+        <header class="header">
+            <h1>Origamidex</h1>
+            <p>For all your origami needs!</p>
+        </header>
+
+        <!--Main Content-->
+        <main>
+
+            <!--Welcome Message-->
+            <div class="welcome">
+                <p>
+                    Welcome to Origamidex!</p>
+                <p>
+                    This website is made to assist you in your search for everything origami!
+                </p>
+                <p>
+                    You can search for projects by design, difficulty, paper, base, and more!
+                </p>
+                <p>
+                    If you are new to origami, I've also made a helpful cheatsheet that explains origami terminology
+                    and symbols.
+                </p>
+            </div>
+
+            <!--Show a random artitcle image-->
+            <div class="random">
+                <img id="randomImage" src=" " alt="Random Article Image" onclick="goToRandom()">
+            </div>
+
+            <!--Search Bar-->
+            <div class="searchBar">
+                <search>
+                    <input type="text" id="search" placeholder="Search">
+                    <button id="searchButton" onclick="search()">Search</button>
+                </search>
+            </div>
+
+            <!--Dropdown Menus-->
+            <div class="dropdownHolder">
+                <div class="difficulty">
+                    <label for="difficulty">Difficulty:</label>
+                    <!-- Dropdown menu for difficulty levels -->
+                    <select id="difficulty">
+                        <option value="">Any</option>
+                        <option value="1">Very Easy</option>
+                        <option value="2">Easy</option>
+                        <option value="3">Intermediate</option>
+                        <option value="4">Hard</option>
+                        <option value="5">Very Hard</option>
+                    </select>
+                </div>
+
+                <div class="paper">
+                    <label for="paper">Paper:</label>
+                    <!-- Dropdown menu for paper shape -->
+                    <select id="paper">
+                        <option value="">Any</option>
+                        <option value="">Any</option>
+                        <option value="">Any</option>
+                        <option value="">Any</option>
+                        <option value="">Any</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--Buttons-->
+            <div class="buttonHolder">
+                <div class="button" id="cheatsheet" onclick="cheatsheet()">
+                    <p>Cheatsheet</p>
+                </div>
+                <div class="button" id="random" onclick="random()">
+                    <p>Random Article</p>
+                </div>
+            </div>
+
+        </main>
+
+        <!--Footer-->
+        <footer class="footer">
+            <p>&copy; 2025 Origamidex</p>
+        </footer>
+    </div>
+</body>
+
+</html>
