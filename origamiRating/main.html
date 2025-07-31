@@ -11,7 +11,7 @@
 
     <!--Links to stylesheet and script-->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script type="module" src="main.js"></script>
 
 </head>
 
@@ -36,7 +36,7 @@
                     This website is made to assist you in your search for everything origami!
                 </p>
                 <p>
-                    You can search for projects by design, difficulty, paper, base, and more!
+                    You can search for projects by design, difficulty, paper shape, base, and more!
                 </p>
                 <p>
                     If you are new to origami, I've also made a helpful cheatsheet that explains origami terminology
@@ -63,7 +63,7 @@
                     <label for="difficulty">Difficulty:</label>
                     <!-- Dropdown menu for difficulty levels -->
                     <select id="difficulty">
-                        <option value="">Any</option>
+                        <option value="any">Any</option>
                         <option value="1">Very Easy</option>
                         <option value="2">Easy</option>
                         <option value="3">Intermediate</option>
@@ -72,21 +72,34 @@
                     </select>
                 </div>
 
-                <div class="paper">
-                    <label for="paper">Paper:</label>
+                <div class="shape">
+                    <label for="shape">Paper Shape:</label>
                     <!-- Dropdown menu for paper shape -->
-                    <select id="paper">
-                        <option value="">Any</option>
-                        <option value="">Any</option>
-                        <option value="">Any</option>
-                        <option value="">Any</option>
-                        <option value="">Any</option>
+                    <select id="shape">
+                        <option value="any">Any</option>
+                        <option value="1:1">1:1</option>
+                        <option value="2:1">2:1</option>
+                        <option value="letter">Letter</option>
+                    </select>
+                </div>
+                <div class="base">
+                    <label for="base">Base:</label>
+                    <!-- Dropdown menu for base -->
+                    <select id="base">
+                        <option value="any">Any</option>
+                        <option value="kite">Kite</option>
+                        <option value="fish">Fish</option>
+                        <option value="bird">Bird</option>
+                        <option value="frog">Frog</option>
+                        <option value="square">Square</option>
+                        <option value="waterbomb">Waterbomb</option>
+                        <option value="blintz">Blintz</option>
                     </select>
                 </div>
             </div>
 
             <!--Buttons-->
-            <div class="buttonHolder">
+            <div class="buttonHolder" id ="navButtons">
                 <div class="button" id="cheatsheet" onclick="cheatsheet()">
                     <p>Cheatsheet</p>
                 </div>
