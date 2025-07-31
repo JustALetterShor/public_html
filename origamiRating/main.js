@@ -28,6 +28,20 @@ function switchArticle(idx) {
     window.location.href = `article.html?idx=${idx}`;
 }
 
+//search bar
+function search(){
+    let item = document.getElementById('search').value;
+    item = item.toLowerCase();
+    for (let i = 0; i < articles.length; i++) {
+        if (articles[i][0].toLowerCase()===item) {
+            articleIdx = i;
+            switchArticle(articleIdx);
+            return;
+        }
+    }
+    switchArticle(-1);
+}
+
 // Since this is a module, functions are not global by default.
 // To make them callable from HTML (e.g., onclick="random()"),
 // they must be explicitly attached to the window object.
@@ -35,5 +49,7 @@ window.cheatsheet = cheatsheet;
 window.random = random;
 window.main = main;
 window.switchArticle = switchArticle;
+window.search = search;
 
-export default {random, cheatsheet, main, switchArticle};
+//export
+export default {random, cheatsheet, main, switchArticle, search};

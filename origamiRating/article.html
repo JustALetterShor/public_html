@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Origamidex</title>
+    <title>The Origami Wiki</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="article.js"></script>
 </head>
@@ -13,6 +13,13 @@
     <div class="container">
         <header>
             <h1 id="title"></h1>
+            <!--Search Bar-->
+            <div class="searchBar">
+                <search>
+                    <input type="search" id="search" placeholder="Search">
+                    <button id="searchButton" onclick="search()">Search</button>
+                </search>
+            </div>
         </header>
         <main>
             <div id="article">
@@ -31,7 +38,7 @@
             </div>
         </main>
         <footer>
-            <p>&copy; 2025 Origamidex</p>
+            <p>&copy; 2025 The Origami Wiki</p>
         </footer>
     </div>
 </body>

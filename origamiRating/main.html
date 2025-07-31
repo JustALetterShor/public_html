@@ -7,7 +7,7 @@
     <meta charset="utf-8">
 
     <!--Title-->
-    <title>Origamidex</title>
+    <title>The Origami Wiki</title>
 
     <!--Links to stylesheet and script-->
     <link rel="stylesheet" href="style.css">
@@ -21,8 +21,15 @@
 
         <!--Header-->
         <header class="header">
-            <h1>Origamidex</h1>
+            <h1>The Origami Wiki</h1>
             <p>For all your origami needs!</p>
+            <!--Search Bar-->
+            <div class="searchBar">
+                <search>
+                    <input type="search" id="search" placeholder="Search">
+                    <button id="searchButton" onclick="search()">Search</button>
+                </search>
+            </div>
         </header>
 
         <!--Main Content-->
@@ -31,7 +38,7 @@
             <!--Welcome Message-->
             <div class="welcome">
                 <p>
-                    Welcome to Origamidex!</p>
+                    Welcome to the Origami Wiki!</p>
                 <p>
                     This website is made to assist you in your search for everything origami!
                 </p>
@@ -49,14 +56,6 @@
                 <img id="randomImage" src=" " alt="Random Article Image" onclick="goToRandom()">
             </div>
 
-            <!--Search Bar-->
-            <div class="searchBar">
-                <search>
-                    <input type="text" id="search" placeholder="Search">
-                    <button id="searchButton" onclick="search()">Search</button>
-                </search>
-            </div>
-
             <!--Dropdown Menus-->
             <div class="dropdownHolder">
                 <div class="difficulty">
@@ -64,11 +63,11 @@
                     <!-- Dropdown menu for difficulty levels -->
                     <select id="difficulty">
                         <option value="any">Any</option>
-                        <option value="1">Very Easy</option>
-                        <option value="2">Easy</option>
-                        <option value="3">Intermediate</option>
-                        <option value="4">Hard</option>
-                        <option value="5">Very Hard</option>
+                        <option value="very easy">Very Easy</option>
+                        <option value="easy">Easy</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="hard">Hard</option>
+                        <option value="very hard">Very Hard</option>
                     </select>
                 </div>
 
@@ -94,6 +93,8 @@
                         <option value="square">Square</option>
                         <option value="waterbomb">Waterbomb</option>
                         <option value="blintz">Blintz</option>
+                        <option value="cupboard">Cupboard</option>
+                        <option value="windmill">Windmill</option>
                     </select>
                 </div>
             </div>
@@ -112,7 +113,7 @@
 
         <!--Footer-->
         <footer class="footer">
-            <p>&copy; 2025 Origamidex</p>
+            <p>&copy; 2025 The Origami Wiki</p>
         </footer>
     </div>
 </body>

@@ -19,11 +19,16 @@ window.onload = function() {
     // Check if the index is valid
     if (articleIdx !== null && articles[articleIdx]) {
         const articleData = articles[articleIdx];
+        document.getElementsByTagName("title")[0].innerHTML = articleData[0];
         document.getElementById("title").innerHTML = articleData[0];
         document.getElementById("article").innerHTML = articleData[1];
+        document.getElementById("difficulty").innerHTML = 'Difficulty: ' + articleData[2].at(0).toUpperCase() + articleData[2].slice(1);
+        document.getElementById("paper shape").innerHTML = 'Paper shape: ' + articleData[3].at(0).toUpperCase() + articleData[3].slice(1);
+        document.getElementById("base").innerHTML = 'Base: ' + articleData[4].at(0).toUpperCase() + articleData[4].slice(1);
     } else {
         // Handle cases where the index is missing or invalid
         document.getElementById("title").innerHTML = "Article not found!";
+        //document.getElementById("article").innerHTML = 'Did you spell your search term correctly?';
         //document.getElementById("article").innerHTML = "Please go back and select an article.";
     }
 };

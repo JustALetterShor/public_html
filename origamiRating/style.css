@@ -1,4 +1,44 @@
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:auto;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
 .button{
+    text-align: center;
     outline: 1px solid #000;
     width: 100px;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.buttonHolder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100;
+    padding: 20;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:auto;
+}
+
+#tags{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.tag{
+    text-align: center;
+    margin: 0px 25px;
 }
